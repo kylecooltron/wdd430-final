@@ -1,0 +1,32 @@
+<div *ngIf="resource" class="panel panel-default" xmlns="http://www.w3.org/1999/html">
+  <div class="panel-heading">
+    <div class="row pad-all">
+      <h4 class="title margin-left-right">{{resource.name}}</h4>
+      <div class="row pull-right margin-left-right">
+        <a (click)="onView()" class="btn btn-primary">View</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="pad-left-right">
+      <div class="row">
+        <label>Description:</label>
+        <span class="label-value">{{resource.description}}</span>
+      </div>
+      <br>
+      <div class="row">
+        <label>URL:</label>
+        <span class="label-value">{{resource.url}}</span>
+      </div>
+      <div class="row">
+        <label>TAGS:</label>
+        <span class="label-value">
+          <div class="tags-area">
+            <div *ngIf="resource.tags?.length == 0" class="gray-out">No tags</div>
+            <rsc-tag-search-item *ngFor="let tag of resource.tags" [tag]="tag"></rsc-tag-search-item>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

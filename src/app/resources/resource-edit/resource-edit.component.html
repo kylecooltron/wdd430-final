@@ -1,0 +1,79 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <form id="resource-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="name">Resource Title:</label>
+          <input type="text" id="name" class="form-control" size="120" max="120" name="name" [ngModel]="resource?.name"
+            required #name="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="description">Resource Description:</label>
+          <textarea type="text" id="description" class="form-control" size="120" max="255" name="description"
+            [ngModel]="resource?.description" rows="5"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="url">Resource URL:</label>
+          <input type="text" id="url" class="form-control" size="150" max="255" name="url" [ngModel]="resource?.url"
+            required #url="ngModel">
+          <div class="alert alert-danger" *ngIf="name.invalid||url.invalid">The Resource Title and Resource URL are
+            required fields</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="tags">Tags:</label>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div *ngIf="tags.length == 0" class="gray-out">No tags yet</div>
+              <div *ngFor="let tag of tags" (click)="removeTag(tag)" class="remove-tag-anchor">
+                <div class="remove-tag">✕</div>
+                <rsc-tag-search-item [tag]="tag" class="extra-x-pad"></rsc-tag-search-item>
+              </div>
+
+            </div>
+
+
+            <!-- add search bar to find tags  -->
+            <div class="extra-panel-padding">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="input-group pull-left pad-left-right col-xs-7">
+                    <input type="text" class="form-control" placeholder="Enter a search value" name="tags"
+                      (keyup)="search(searchBox.value)" #searchBox>
+                    <div class="glyphicon glyphicon-search input-group-addon" (click)="search(searchBox.value)">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="center-panel">
+                  <h2 *ngIf="loading">Loading...</h2>
+                  <rsc-tag-search-item *ngFor="let tag of searchable_tags | tagsFilter:term:tags" [tag]="tag"
+                    (click)="addTag(tag)"></rsc-tag-search-item>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</div>

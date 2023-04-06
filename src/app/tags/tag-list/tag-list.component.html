@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row pad-left-right">
+      <span class="pull-left title">Tags</span>
+      <a routerLink="new" class="btn btn-success pull-right">Add Tag</a>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="center-panel">
+      <h2 *ngIf="loading">Loading...</h2>
+      <rsc-tag-item *ngFor="let tag of tags" [tag]="tag"></rsc-tag-item>
+    </div>
+  </div>
+
+</div>

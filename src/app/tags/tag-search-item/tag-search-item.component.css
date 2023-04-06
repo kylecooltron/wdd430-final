@@ -1,0 +1,19 @@
+.tagDiv {
+  max-width: 16rem;
+  min-height: 3.5rem;
+  margin: 2px;
+  border: solid thin darkgrey;
+  float: left;
+  border-radius: 1em;
+}
+
+h4 {
+  font-size: 1.3rem;
+  max-width: 13rem;
+  margin: 0 auto;
+  /* padding-left: 0.5em; */
+}
+
+::ng-deep .extra-x-pad h4 {
+  padding-right: 8px;
+}

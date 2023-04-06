@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row pad-left-right">
+      <span class="pull-left title">Search</span>
+    </div>
+    <div class="row">
+      <div class="input-group pull-left pad-left-right col-xs-7">
+        <input type="text" class="form-control" placeholder="Enter a search value" (keyup)="search(searchBox.value)"
+          #searchBox>
+        <div class="glyphicon glyphicon-search input-group-addon" (click)="search(searchBox.value)">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="center-panel">
+      <h2 *ngIf="loading">Loading...</h2>
+      <rsc-resource-item *ngFor="let resource of resources | resourcesFilter:term"
+        [resource]="resource"></rsc-resource-item>
+    </div>
+  </div>
+
+</div>

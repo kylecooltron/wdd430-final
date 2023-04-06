@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <form id="tag-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="name">Tag Name:</label>
+          <input type="text" id="name" class="form-control" size="120" max="120" name="name" [ngModel]="tag?.name"
+            required #name="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</div>

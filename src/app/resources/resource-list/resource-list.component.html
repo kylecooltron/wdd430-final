@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row pad-left-right">
+      <span class="pull-left title">Resources</span>
+      <a routerLink="new" class="btn btn-success pull-right">Add Resource</a>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="center-panel">
+      <h2 *ngIf="loading">Loading...</h2>
+      <rsc-resource-item *ngFor="let resource of resources" [resource]="resource"></rsc-resource-item>
+    </div>
+  </div>
+
+</div>

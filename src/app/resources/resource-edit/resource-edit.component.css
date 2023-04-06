@@ -1,0 +1,36 @@
+input.ng-invalid {
+  border: 1px solid red;
+}
+
+
+
+.pad-left-right {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.remove-tag {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  padding-top: 0.7em;
+  right: 0.6em;
+  z-index: 100;
+}
+
+.remove-tag-anchor {
+  display: inline-block;
+  position: relative;
+  max-width: 14rem;
+  margin-right: 0.25em;
+}
+
+.gray-out {
+  margin: 0;
+  padding: 0;
+  color: gray;
+}
+
+.extra-panel-padding {
+  padding: 0.25em;
+}
