@@ -59,11 +59,11 @@ export class ResourceEditComponent implements OnInit {
 
     // load tags 
     this.loading = true;
-    this.tagService.getTags();
     this.subscription = this.tagService.tagListChangedEvent.subscribe((tagList: Tag[]) => {
       this.searchable_tags = tagList;
       this.loading = false;
     })
+    this.tagService.getTags();
   }
 
   ngOnDestroy(): void {
